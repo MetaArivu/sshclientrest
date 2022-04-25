@@ -109,7 +109,8 @@ public class AppControllerImpl extends AbstractController {
     @PostMapping("/command/{command}")
     public ResponseEntity<CommandResults> executeCommand(@PathVariable("command") String _command) {
 		log.info("|"+name()+"|Request to execute command = "+_command);
-		SSHClient cl = new SSHClient("demo", "password", "test.rebex.net", 22, 10);
+		SSHClient cl = new SSHClient(serviceConfig.getSshUser(), serviceConfig.getSshPassword(),
+				serviceConfig.getSshHost(), serviceConfig.getSshPort(), 10);
 		try {
 			cl.clientStart();
 			String result = cl.executeCommand(_command);
@@ -133,10 +134,11 @@ public class AppControllerImpl extends AbstractController {
 					description = "Unable to Execute SSH Commands",
 					content = @Content)
 	})
-	@PostMapping("/commands/{command}")
-	public ResponseEntity<ArrayList<CommandResults>> executeCommands(@PathVariable("command") String _command) {
-		log.info("|"+name()+"|Request to execute command = "+_command);
-		SSHClient cl = new SSHClient("demo", "password", "test.rebex.net", 22, 10);
+	@PostMapping("/commands/{commands}")
+	public ResponseEntity<ArrayList<CommandResults>> executeCommands(@PathVariable("commands") String _command) {
+		log.info("|"+name()+"|Request to execute commands = "+_command);
+		SSHClient cl = new SSHClient(serviceConfig.getSshUser(), serviceConfig.getSshPassword(),
+				serviceConfig.getSshHost(), serviceConfig.getSshPort(), 10);
 		String[] commands = _command.split(",");
 		for(String command : commands) {
 			try {

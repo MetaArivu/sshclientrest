@@ -119,7 +119,19 @@ public class ServiceConfiguration implements Serializable {
 	
 	@Value("${server.port:9080}")
 	private int serverPort;
-	
+
+	@Value("${ssh.crdu:demo}")
+	private String sshcrdu;
+
+	@Value("${ssh.crdp:password}")
+	private String sshcrdp;
+
+	@Value("${ssh.host:test.rebex.net}")
+	private String sshhost;
+
+	@Value("${ssh.port:22}")
+	private int sshport;
+
 	@Value("${payment.gateway.host:localhost}")
 	private String paymentGWHost;
 	@Value("${payment.gateway.port:9091}")
@@ -336,5 +348,21 @@ public class ServiceConfiguration implements Serializable {
 
 	public String getServiceContainer() {
 		return serviceContainer;
+	}
+
+	public String getSshUser() {
+		return sshcrdu;
+	}
+
+	public String getSshPassword() {
+		return sshcrdp;
+	}
+
+	public String getSshHost() {
+		return sshhost;
+	}
+
+	public int getSshPort() {
+		return sshport;
 	}
 }

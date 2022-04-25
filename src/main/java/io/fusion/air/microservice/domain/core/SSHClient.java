@@ -5,6 +5,7 @@ import org.apache.sshd.client.channel.ClientChannel;
 import org.apache.sshd.client.channel.ClientChannelEvent;
 import org.apache.sshd.client.session.ClientSession;
 import org.apache.sshd.common.channel.Channel;
+import org.slf4j.Logger;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -14,12 +15,19 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import java.io.ByteArrayOutputStream;
+
+import static java.lang.invoke.MethodHandles.lookup;
+import static org.slf4j.LoggerFactory.getLogger;
+
 /**
  * @author: Araf Karsh Hamid
  * @version:
  * @date:
  */
 public class SSHClient {
+
+    // Set Logger -> Lookup will automatically determine the class name.
+    private static final Logger log = getLogger(lookup().lookupClass());
 
     private final String username;
     private final String password;
@@ -62,7 +70,7 @@ public class SSHClient {
      */
     public SshClient clientStart() {
         if(client == null) {
-            System.out.println("Setting SSH Default Client");
+            log.info("Setting SSH Default Client");
             client = SshClient.setUpDefaultClient();
             client.start();
         }
@@ -110,7 +118,7 @@ public class SSHClient {
      * @throws IOException
      */
     public void closeSession() {
-        System.out.println("Closing the Client Session...");
+        log.info("Closing the Client Session...");
         if(clientSession != null) {
             try {
                 clientSession.close();
@@ -145,7 +153,7 @@ public class SSHClient {
     }
 
     public void closeChannel() {
-        System.out.println("Closing the Client Channel...");
+        log.info("Closing the Client Channel...");
         if(channel != null) {
             try {
                 channel.close();
@@ -170,7 +178,7 @@ public class SSHClient {
      */
     public String executeCommand(String command) throws IOException {
         String outputString = "";
-        System.out.println("Setting SSH Session "+username+"@"+ getHost() +":"+ getPort() +"/");
+        log.info("Setting SSH Session "+username+"@"+ getHost() +":"+ getPort() +"/");
         ClientSession session = getSession();
         ClientChannel channel = getChannel();
         Date dt = new Date();
