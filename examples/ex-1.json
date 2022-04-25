@@ -1,0 +1,6 @@
+{
+    "command": "help",
+    "result": "Welcome to Rebex Virtual Shell!\r\nFor a list of supported commands, type 'help'.\r\ndemo@ETNA:/$ help\r\nSupported commands:\r\n whoami  uname   hostname\r\n echo    mv      rm\r\n pwd     mkdir   rmdir\r\n dir     cp      ls\r\n groups  cd      set\r\n exit    help\r\ndemo@ETNA:/$ ",
+    "startTime": 1650854208800,
+    "elapsedTime": 10797
+  }

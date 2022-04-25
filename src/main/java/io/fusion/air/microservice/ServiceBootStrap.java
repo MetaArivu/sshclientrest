@@ -71,8 +71,7 @@ public class ServiceBootStrap {
 	// Set Logger -> Lookup will automatically determine the class name.
 	private static final Logger log = getLogger(lookup().lookupClass());
 
-	private final String title = "<h1>Welcome to MICRO Service<h1/>"
-			+"<h3>Copyright (c) MetaArivu Pvt Ltd, 2021</h3>"
+	private final String title = "<h1>Welcome to SSH Client Service<h1/>"
 			+"<h5>Build No: BN :: Build Date: BD :: </h5>";
 
 	private static ConfigurableApplicationContext context;
@@ -237,7 +236,7 @@ public class ServiceBootStrap {
 	 * @return
 	 */
 	@Bean
-	public OpenAPI orderOpenAPI() {
+	public OpenAPI sshClientOpenAPI() {
 		return new OpenAPI()
 				.info(new Info()
 						.title(serviceConfig.getServiceName()+" Service")

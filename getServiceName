@@ -2,7 +2,7 @@
 # -------------------------------------------------------------------------------------------
 # @author: Araf Karsh Hamid
 # -------------------------------------------------------------------------------------------
-SRC_BASE=~/workspace/IntelliJ/microservice-template
+SRC_BASE=~/ws/sshclientrest
 orgName=1
 serviceName=2
 apiName=3

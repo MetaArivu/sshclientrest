@@ -3,7 +3,7 @@
 # Microservice Template
 # (C) MetaMagic Global Inc, NJ, USA, 2021
 #
-# Container Name: mock-service
+# Container Name: sshclient-service
 #
 # Microservices Containers - SpringBoot 2.5.3
 #
@@ -18,8 +18,8 @@ RUN mkdir /Softwares/service
 RUN mkdir /Softwares/service/libs
 RUN mkdir /home/arivu/libs
 
-ARG SPRINGBOOT_JAR=mock-service-spring-boot.jar
-ARG MAVEN_JAR=mock-service-thin.jar
+ARG SPRINGBOOT_JAR=sshclient-service-spring-boot.jar
+ARG MAVEN_JAR=sshclient-service-thin.jar
 
 # Copy Service (Install)
 # COPY --chown=arivu:arivu StartService /Softwares/service/
@@ -40,5 +40,5 @@ RUN chmod -R 750 /Softwares/service/*
 EXPOSE 9090
 
 # Start Microservice
-#ENTRYPOINT ["java","-jar","/Softwares/service/mock-service-thin.jar"]
-ENTRYPOINT ["java","-jar","/Softwares/service/mock-service-spring-boot.jar"]
+#ENTRYPOINT ["java","-jar","/Softwares/service/sshclient-service-thin.jar"]
+ENTRYPOINT ["java","-jar","/Softwares/service/sshclient-service-spring-boot.jar"]
