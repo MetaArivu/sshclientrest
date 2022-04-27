@@ -1,0 +1,15 @@
+{
+    "date": "2022-04-27T12:49+0530",
+    "command": "ls -la",
+    "result": [
+        "Welcome to Rebex Virtual Shell!", 
+        "For a list of supported commands, type 'help'.", 
+        "demo@ETNA:/$ ls -la", 
+        "drwx------ 2 demo users          0 Feb 22 16:37 .", 
+        "drwx------ 2 demo users          0 Feb 22 16:37 ..", 
+        "drwx------ 2 demo users          0 Oct 19  2020 pub", 
+        "-rw------- 1 demo users        405 Dec 17  2021 readme.txt", 
+        "demo@ETNA:/$ "
+    ],
+    "timeTaken": 11175
+} 
